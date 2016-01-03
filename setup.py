@@ -28,6 +28,7 @@ setup(
         'fudge>=1.0.3',
         'requests>=0.14.0',
         'simplejson>=2.0',
+        'six>=1.2.0'
     ],
     tests_require=[
         'nose>=1.1.2',
