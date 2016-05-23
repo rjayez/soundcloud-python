@@ -13,9 +13,10 @@ from soundcloud.request import make_request
 class Client(object):
     """A client for interacting with Soundcloud resources."""
 
+    HTTP_ERROR = HTTPError
+
     use_ssl = True
     host = 'api.soundcloud.com'
-    http_error = HTTPError
 
     def __init__(self, **kwargs):
         """Create a client instance with the provided options. Options should
