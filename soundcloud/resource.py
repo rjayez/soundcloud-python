@@ -43,6 +43,7 @@ class Resource(object):
 class ResourceList(UserList):
     """Object wrapper for lists of resources."""
     def __init__(self, resources=[]):
+        resources = filter(lambda item: item is not None, resources)
         data = [Resource(resource) for resource in resources]
         super(ResourceList, self).__init__(data)
 
