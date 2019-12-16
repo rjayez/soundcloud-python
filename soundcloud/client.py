@@ -4,12 +4,16 @@ try:
 except ImportError:
     from urllib.parse import urlencode
 
+from requests.exceptions import HTTPError
+
 from soundcloud.resource import wrapped_resource
 from soundcloud.request import make_request
 
 
 class Client(object):
     """A client for interacting with Soundcloud resources."""
+
+    HTTP_ERROR = HTTPError
 
     use_ssl = True
     host = 'api.soundcloud.com'
