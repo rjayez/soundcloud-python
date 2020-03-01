@@ -10,6 +10,7 @@ for line in open('./soundcloud/__init__.py'):
         version = m.group(1).strip()[1:-1]  # quotes
         break
 assert version
+print(version)
 
 setup(
     name='soundcloud',
@@ -25,13 +26,14 @@ setup(
         '': ['README.rst']
     },
     install_requires=[
-        'fudge>=1.0.3',
-        'requests>=0.14.0',
-        'simplejson>=2.0',
-        'six>=1.2.0'
+        'nose>=1.3.7',
+        'fudge==1.1.1',
+        'requests>=2.22.0',
+        'simplejson>=3.17.0',
+        'six>=1.13.0'
     ],
     tests_require=[
-        'nose>=1.1.2',
+        'nose>=1.3.7',
     ],
     classifiers=[
         'Development Status :: 4 - Beta',
