@@ -16,8 +16,8 @@ class Resource(object):
     """
     def __init__(self, obj):
         self.obj = obj
-        if hasattr(self, 'origin'):
-            self.origin = Resource(self.origin)
+        if hasattr(self, 'origin') :
+                self.origin = Resource(self.origin)
 
     def __getstate__(self):
         return self.obj.items()
@@ -43,8 +43,15 @@ class Resource(object):
 class ResourceList(UserList):
     """Object wrapper for lists of resources."""
     def __init__(self, resources=[]):
-        resources = filter(lambda item: item is not None, resources)
-        data = [Resource(resource) for resource in resources]
+        print('resources : ', resources)
+
+        resourcesfiltered = []
+        for resource in resources:
+            if type(resource) is not dict or 'origin' not in resource or resource['origin'] is not None:
+                resourcesfiltered.append(resource)
+
+        print('filtre : ', resourcesfiltered)
+        data = [Resource(resource) for resource in resourcesfiltered]
         super(ResourceList, self).__init__(data)
 
 
